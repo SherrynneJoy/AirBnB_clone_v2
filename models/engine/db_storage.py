@@ -12,7 +12,6 @@ from models.place import Place
 from models.user import User
 
 
-
 class DBStorage:
     """a DB storage engine"""
     __engine = None
