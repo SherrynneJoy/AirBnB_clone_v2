@@ -3,7 +3,7 @@
 from flask import Flask, abort, render_template
 from models import storage
 from models.state import State
-from sqlalchemy.orm import scoped_session, sessionmaker
+
 
 app = Flask(__name__)
 
@@ -17,8 +17,13 @@ def teardown(exception):
 @app.route("/states_list", strict_slashes=False)
 def states_list():
     """displays a HTML page"""
-    states = sorted(storage.all(State).values(), key=lambda s: s.name)
-    return render_template("7-states_list.html", states=states)
+    try:
+        states = sorted(storage.all(State).values(), key=lambda s: s.name)
+        return render_template("7-states_list.html", states=states)
+    except Exception as e:
+        # Print the exception for debugging
+        print(f"Error: {e}")
+        return "An error occurred. Please check the logs."
 
 
 if __name__ == "__main__":

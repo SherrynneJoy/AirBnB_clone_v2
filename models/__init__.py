@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """This module instantiates an object of class FileStorage"""
 from os import getenv
+import json
 
 
 if getenv('HBNB_TYPE_STORAGE') == 'db':
@@ -9,4 +10,7 @@ if getenv('HBNB_TYPE_STORAGE') == 'db':
 else:
     from models.engine.file_storage import FileStorage
     storage = FileStorage()
-storage.reload()
+    try:
+        storage.reload()
+    except json.JSONDecodeError:
+        pass
