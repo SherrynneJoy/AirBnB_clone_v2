@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<HTML lang="en">
+    <HEAD>
+        <TITLE>HBNB</TITLE>
+    </HEAD>
+    <BODY>
+
+        <H1>States</H1>
+	{% if state %}
+	  <h3>Cities:</h3>
+	  <UL>
+		  {% for city in cities %}
+		    <li>{{ city.id }}: <b>{{ city.name }}</b></li>
+		  {% endfor %}
+	  </UL>
+	{% else %}
+	  <h1>Not found!</h1>
+	{% endif %}
+    </BODY>
+</HTML>
