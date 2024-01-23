@@ -46,7 +46,7 @@ def render_number(n):
         abort(404)
 
 
-@app.route("/number_odd_or_even/<n>", strict_slashes=False)
+@app.route("/number_odd_or_even/<int:n>", strict_slashes=False)
 def even_or_odd(n):
     try:
         n = int(n)
