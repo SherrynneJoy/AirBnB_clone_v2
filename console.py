@@ -146,8 +146,6 @@ class HBNBCommand(cmd.Cmd):
 
         except SyntaxError:
             print("** class name missing **")
-        except NameError:
-            print("** class doesn't exist **")
 
     def help_create(self):
         """ Help information for the create method """
